@@ -4,7 +4,7 @@ def decimal_to_binary(n):               #Converts decimal to binary and formats 
     return bin(n).replace("0b", "")
 
 
-def cast_i_in_list(cast_to, list_to_cast):          #Casts each index in a list. Parameters are (str, list)
+def conv_i_in_list(cast_to, list_to_cast):          #Converts each index in a list. Parameters are (str, list)
     if cast_to == 'bin':
         for i in range(0, len(list_to_cast)):
             list_to_cast[i] = decimal_to_binary(list_to_cast[i])
@@ -41,30 +41,21 @@ def run():
                     address_bytes.append("")
 
             address_bytes.pop()
-            cast_i_in_list('int', address_bytes)
-            cast_i_in_list('bin', address_bytes)
-            # for i in range(0, len(address_bytes)):
-            #     address_bytes[i] = int(address_bytes[i])
-
-            # #---------------------------------------------------------
-            # for i in range(0, len(address_bytes)):
-            #     address_bytes[i] = decimal_to_binary(address_bytes[i])
-
-            # for i in range(0, len(address_bytes)):
-            #     address_bytes[i] = int(address_bytes[i])
-            # print(address_bytes)
-
-            #-------------------------------------------------------
+            conv_i_in_list('int', address_bytes)
+            conv_i_in_list('bin', address_bytes)
             
             zeros_count = 0
-            index = 0
+            byte = 0
             for i in address_bytes:
                 if i == '0':
                     zeros_count = zeros_count + 8
                 elif i != '0':
-                    zeros_count = zeros_count + address_bytes[index].count('0')
-                    index = index + 1
+                    zeros_count = zeros_count + address_bytes[byte].count('0')
+                    byte = byte + 1
+            
+            how_many_hosts = 2**zeros_count - 2
             print(zeros_count)
+            print("\nThere are", how_many_hosts, "mpossible hosts\n")
 
 
         elif which_conv.startswith(('h', 'H')):
