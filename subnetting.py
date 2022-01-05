@@ -4,6 +4,16 @@ def decimal_to_binary(n):               #Converts decimal to binary and formats 
     return bin(n).replace("0b", "")
 
 
+def cast_i_in_list(cast_to, list_to_cast):          #Casts each index in a list. Parameters are (str, list)
+    if cast_to == 'bin':
+        for i in range(0, len(list_to_cast)):
+            list_to_cast[i] = decimal_to_binary(list_to_cast[i])
+    elif cast_to == 'int':
+        for i in range(0, len(list_to_cast)):
+            list_to_cast[i] = int(list_to_cast[i])
+    else:
+        return TypeError
+
 def run():
     print("""--------------------------------------
     -------- SUBNETTING CONVERTER --------
@@ -31,13 +41,14 @@ def run():
                     address_bytes.append("")
 
             address_bytes.pop()
+            cast_i_in_list('int', address_bytes)
+            cast_i_in_list('bin', address_bytes)
+            # for i in range(0, len(address_bytes)):
+            #     address_bytes[i] = int(address_bytes[i])
 
-            for i in range(0, len(address_bytes)):
-                address_bytes[i] = int(address_bytes[i])
-
-            #---------------------------------------------------------
-            for i in range(0, len(address_bytes)):
-                address_bytes[i] = decimal_to_binary(address_bytes[i])
+            # #---------------------------------------------------------
+            # for i in range(0, len(address_bytes)):
+            #     address_bytes[i] = decimal_to_binary(address_bytes[i])
 
             # for i in range(0, len(address_bytes)):
             #     address_bytes[i] = int(address_bytes[i])
