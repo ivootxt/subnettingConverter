@@ -1,4 +1,5 @@
 import math
+import socket
 
 
 def decimal_to_binary(n):               #Converts decimal to binary and formats it.
@@ -19,19 +20,20 @@ def conv_i_in_list(cast_to, list_to_cast):          #Converts each index in a li
         return TypeError
 
 
-def run():
+def converter():
 
-    print("""--------------------------------------
-    -------- SUBNETTING CONVERTER --------
+    print("""   ================================================
+    ----------------- CONVERTER --------------------
+
             from hosts to mask
                     or
             from mask to hosts
-    -------------------------------------
+
+    ================================================
     """)
-    print("What do you have? ")
 
     while True:
-        which_conv = input('Select H for hosts or M for masks. Select Q to quit.\n')
+        which_conv = input('Select H for hosts to mask or M for masks to hosts. Select Q to quit.\n')
 
         if which_conv.startswith(('q', 'Q')):
             break
@@ -108,7 +110,7 @@ def run():
             mask_address = address_bytes.pop()
             
             print("-----------------------------------------")
-            print(f"\nFor {num_of_hosts} you should use {mask_address[:len(mask_address) -1:]} mask\n")
+            print(f"\nFor {num_of_hosts} hosts you should use {mask_address[:len(mask_address) -1:]} mask\n")
             print("-----------------------------------------")
 
 
@@ -116,6 +118,16 @@ def run():
             print("Please select a correct option \n")
 
 
+def find_host():
+    
+
+
+def run():
+    # if(True):
+    #     pass
+    #     converter()
+    converter()
+    
 
 # New functionalities coming soon
 
