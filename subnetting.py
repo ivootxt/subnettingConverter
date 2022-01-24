@@ -1,5 +1,4 @@
-import math
-import socket
+from math import log
 
 
 def decimal_to_binary(n):               #Converts decimal to binary and formats it.
@@ -78,7 +77,7 @@ def converter():
         elif which_conv.startswith(('h', 'H')):
 
             num_of_hosts = int(input("How many hosts will you use \n"))
-            log2hosts = int(math.log(num_of_hosts, 2))
+            log2hosts = int(log(num_of_hosts, 2))
             bin_zeros = log2hosts + 1
             address_bytes = []
             address_bytes.append('0' * bin_zeros)
@@ -118,8 +117,11 @@ def converter():
             print("Please select a correct option \n")
 
 
-def find_host():
-    
+# def host_acknowledgement():
+#     hostname = 
+#     ip = 
+
+#     print('The host name is' + hostname)
 
 
 def run():
